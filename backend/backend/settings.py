@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ecommerce_db',
         'USER': 'postgres',
-        'PASSWORD': 'wifirit24',
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'your_new_secure_password'),
         'HOST': 'localhost',
         'PORT': '5433',
     }

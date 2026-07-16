@@ -1,3 +1,9 @@
+import os
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 import psycopg2
 
 
@@ -7,7 +13,7 @@ def kpi_dashboard():
         host="localhost",
         database="ecommerce_db",
         user="postgres",
-        password="wifirit24",
+        password=os.environ.get("DB_PASSWORD", "your_new_secure_password"),
         port="5433"
     )
 
