@@ -1,18 +1,19 @@
 from processminer.agents.graph import graph
 
-
 while True:
 
-    question = input("Ask: ")
+    question = input("\nAsk FlowLens: ")
 
-    if question == "exit":
+    if question.lower() in ["exit", "quit"]:
         break
 
     result = graph.invoke({
-
-        "question": question
-
+        "question": question,
+        "tool_calls": [],
+        "tool_results": [],
+        "answer": ""
     })
 
-    print()
+    print("\n==========================")
     print(result["answer"])
+    print("==========================")
